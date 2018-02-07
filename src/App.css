@@ -1,0 +1,61 @@
+.square {
+  box-sizing: border-box;
+  width: 150px;
+  height: 150px;
+  display: block;
+  float: left;
+  margin: 0;
+}
+
+.selected {
+  border: solid 5px #FFF;
+  box-shadow: inset 0 0 0 1000px rgba(255,255,255,.3);
+}
+
+.selected::before {
+  position: absolute;
+  content: '';
+  background-image: url('knight.png');
+  background-repeat: no-repeat;
+  background-size: 150px 300px;
+  background-position: -20% 0%;
+  /* background: rgba(0,0,0, 0.5); */
+  width: 200px;
+  height: 300px;
+  pointer-events: none;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(135deg);
+}
+
+.owned {
+  box-shadow: inset 0 0 0 1000px rgba(0,255,255,.3);
+}
+
+.grid-box {
+  position: relative;
+  margin: 40px auto 0;
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(-135deg);
+}
+
+.grid-box:focus {
+  outline: none;
+}
+
+.forest {
+  background-image: url('forest.jpeg');
+}
+
+.mountain {
+  background-image: url('mountain.jpeg');
+}
+
+.field {
+  background-image: url('kh.jpeg');
+}
+
+.swamp {
+  background-image: url('swamp.jpeg');
+}
+
+.castle {
+  background-image: url('castle.jpeg');
+}
