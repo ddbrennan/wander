@@ -5,16 +5,12 @@ class Square extends React.Component {
     tile: this.props.tile
   }
 
-  setClassName() {
-    
-  }
-
   render() {
     return (
       <div
         className={this.props.selectedSquare[0] === this.props.x &&
            this.props.selectedSquare[1] === this.props.y ?
-           `selected square ${this.state.tile} ${this.props.owned ? "owned" : ""}` : `square ${this.state.tile} ${this.props.owned ? "owned" : ""}`}>
+           `selected square ${this.state.tile}` : `square ${this.state.tile}`}>
       </div>
     )
   }

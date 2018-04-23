@@ -8,7 +8,7 @@ class Grid extends React.Component {
 
 
   makeSquares = () => {
-    const tiles = ["forest", "mountain", "field", "swamp", "castle"]
+    const tiles = ["red", "blue", "yellow", "purple", "green"]
     let arr = []
     let key = 0
     for(let i = 0; i < (this.props.gridWidth); i++) {
@@ -26,67 +26,43 @@ class Grid extends React.Component {
 
   handleKeyPress = (e) => {
     switch (e.which) {
-      case 119:
-        this.goUp();
+      case 87:
+        this.move(0, 1);
         break;
-      case 100:
-        this.goRight();
+      case 68:
+        this.move(1, 1);
         break;
-      case 115:
-        this.goDown();
+      case 83:
+        this.move(0, -1);
         break;
-      case 97:
-        this.goLeft();
+      case 65:
+        this.move(1, -1);
         break;
     }
   }
 
-  goLeft() {
+  move = (dir, change) => {
     let coords = this.state.selectedSquare
-    if ((coords[1] - 1) > -1) {
-      coords[1] -= 1
+    if ((coords[dir] + change) > -1 && (coords[dir] + change) < this.props.gridWidth) {
+      coords[dir] += change
     }
     this.setState({
       selectedSquare: coords
     })
   }
 
-  goDown() {
-    let coords = this.state.selectedSquare
-    if ((coords[0] - 1) > -1) {
-      coords[0] -= 1
-    }
-    this.setState({
-      selectedSquare: coords
-    })
+  componentDidMount = () => {
+    window.addEventListener("keydown", this.handleKeyPress)
   }
 
-  goRight() {
-    let coords = this.state.selectedSquare
-    if ((coords[1] + 1) < this.props.gridWidth) {
-      coords[1] += 1
-    }
-    this.setState({
-      selectedSquare: coords
-    })
-  }
-
-  goUp() {
-    let coords = this.state.selectedSquare
-    if ((coords[0] + 1) < this.props.gridWidth) {
-      coords[0] += 1
-    }
-    this.setState({
-      selectedSquare: coords
-    })
+  componentWillUnmount = () => {
+    window.removeEventListener("keydown", this.handleKeyPress)
   }
 
   render() {
     return (
       <div className="grid-box"
-           style={{"width": this.props.gridWidth * 150, "height": this.props.gridWidth * 150}}
-           onKeyPress={ this.handleKeyPress }
-           tabIndex="0">
+           style={{"width": this.props.gridWidth * 150, "height": this.props.gridWidth * 150}}>
         { this.makeSquares() }
       </div>
     )

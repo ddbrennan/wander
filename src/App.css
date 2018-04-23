@@ -1,3 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: radial-gradient(#e3edfc, #bed3f4);
+}
+
 .square {
   box-sizing: border-box;
   width: 150px;
@@ -15,19 +22,14 @@
 .selected::before {
   position: absolute;
   content: '';
-  background-image: url('knight.png');
+  background-image: url('character.png');
   background-repeat: no-repeat;
-  background-size: 150px 300px;
-  background-position: -20% 0%;
-  /* background: rgba(0,0,0, 0.5); */
+  background-size: 120px 300px;
+  background-position: 13% 0%;
   width: 200px;
   height: 300px;
   pointer-events: none;
   transform: rotateX(0deg) rotateY(0deg) rotateZ(135deg);
-}
-
-.owned {
-  box-shadow: inset 0 0 0 1000px rgba(0,255,255,.3);
 }
 
 .grid-box {
@@ -40,22 +42,22 @@
   outline: none;
 }
 
-.forest {
-  background-image: url('forest.jpeg');
+.red {
+  background-color: #ba1446;
 }
 
-.mountain {
-  background-image: url('mountain.jpeg');
+.blue {
+  background-color: #1f1f91;
 }
 
-.field {
-  background-image: url('kh.jpeg');
+.purple {
+  background-color: #6b1087;
 }
 
-.swamp {
-  background-image: url('swamp.jpeg');
+.green {
+  background-color: #237031;
 }
 
-.castle {
-  background-image: url('castle.jpeg');
+.yellow {
+  background-color: #d39e17;
 }
